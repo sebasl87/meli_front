@@ -1,12 +1,21 @@
-import { createStore } from "redux";
+import { createStore, applyMiddleware, compose } from "redux";
 import reducers from "../reducers";
+import saga from "redux-saga";
+import sagas from "../sagas";
 
-let store;
+const sagaMiddleware = saga();
 
-export default (initialState) => {
-  {
-    store = createStore(reducers, initialState);
-  }
+// eslint-disable-next-line
+export default (initialState = {}) => {
+  const composeEnhancers =
+    (typeof window !== "undefined" &&
+      window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
+    compose;
+
+  const enhancer = composeEnhancers(applyMiddleware(sagaMiddleware));
+  const store = createStore(reducers, initialState, enhancer);
+
+  sagaMiddleware.run(sagas);
 
   return store;
 };
