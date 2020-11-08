@@ -1,64 +1,79 @@
-import React, { Component } from 'react'
-import {fetchItemsRequested} from '../actions/items'
+import React, { Component } from "react";
+import { fetchItemsRequested } from "../actions/items";
 // import { Redirect } from 'react-router-dom'
 // import 'firebase/auth';
 // import { CardLogin } from '../components';
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
+import { MeliBreadcrumb, MeliCard, MeliHeader } from "../Components";
 
 // import { logIn, forgetOn, forgetOff, repassOn } from '../store/actions/auth'
-
 class Start extends Component {
+  // state = {
+  //     email: '',
+  //     password: ''
+  // }
 
-    // state = {
-    //     email: '',
-    //     password: ''
-    // }
+  // handleChange = (e) => {
+  //     this.setState({
+  //         [e.target.name]: e.target.value
+  //     })
 
+  // }
 
-    // handleChange = (e) => {
-    //     this.setState({
-    //         [e.target.name]: e.target.value
-    //     })
+  handleSubmit = async (e) => {
+    e.preventDefault();
+    this.props.logIn(this.state);
+  };
+  // handleForgetOn = (e) => {
+  //     e.preventDefault();
+  //     this.props.forgetOn()
 
-    // }
+  // }
+  // handleForgetOff = (e) => {
+  //     e.preventDefault();
+  //     this.props.forgetOff()
 
-    handleSubmit = async (e) => {
-        e.preventDefault();
-        this.props.logIn(this.state);
+  // }
+  // handleRePass = async (e) => {
+  //     e.preventDefault()
+  //     this.props.rePass(this.state)
 
+  // }
+  render() {
+    const arrayT = ['paso 1', 'otro paso', 'lo ultimo fue']
+    // const { auth, forget } = this.props
+    // if(auth.uid) return <Redirect to='/extranet' />
+    const item = {
+        "id": "MLA870176477",
+        "title": "Pileta Estructural Rectangular Pelopincho 1010 Con Capacidad De 500 Litros De 1.55m De Largo X 1.07m De Ancho",
+        "price": {
+            "currency": "ARS",
+            "amount": 3399.9
+        },
+        "picture": "http://http2.mlstatic.com/D_678155-MLA40184463929_122019-I.jpg",
+        "condition": "new",
+        "free_shipping": true
     }
-    // handleForgetOn = (e) => {
-    //     e.preventDefault();
-    //     this.props.forgetOn()
+    return (
+      <>
+      <MeliHeader placeholderM="Nunca dejes de buscar"/>
+        <div>
+          HOLIS
+          {/* {console.log(props.user)} */}
+        </div>
+        <br />
+        <button className="btn btn-primary" onClick={this.handleSubmit}>
+          COMPRA
+        </button>
 
-    // }
-    // handleForgetOff = (e) => {
-    //     e.preventDefault();
-    //     this.props.forgetOff()
+        <br />
+        <MeliBreadcrumb data={arrayT} />
+        <br />
 
-    // }
-    // handleRePass = async (e) => {
-    //     e.preventDefault()
-    //     this.props.rePass(this.state)
- 
-    // }
-    render() {
-        // const { auth, forget } = this.props
-        // if(auth.uid) return <Redirect to='/extranet' />
+        <MeliCard
+        data={item}/>
 
-        return (
-            <>
-                <div>
-                    HOLIS
-                    {/* {console.log(props.user)} */}
-                </div>
-                <button className="btn btn-primary"
-                    onClick={this.handleSubmit}
-
-                >
-                    COMPRA
-                </button>
-                {/* <CardLogin
+        {/* <CardLogin
                     onChange={this.handleChange}
                     onClick={this.handleSubmit}
                     onForget={this.handleForgetOn}
@@ -67,25 +82,22 @@ class Start extends Component {
                     forget={forget}
                     user={this.state}
                 /> */}
-            </>
-
-        )
-    }
+      </>
+    );
+  }
 }
 const mapStateToProps = (state) => {
-    // console.log(state);
-    return {
-    }
-}
+  // console.log(state);
+  return {};
+};
 
 const mapDispatchToProps = (dispatch) => {
-    return {
-        logIn: () => dispatch(fetchItemsRequested()),
-        // forgetOn: () => dispatch(forgetOn()),
-        // forgetOff: () => dispatch(forgetOff()),
-        // rePass: (cred) => dispatch(repassOn(cred)),
+  return {
+    logIn: () => dispatch(fetchItemsRequested()),
+    // forgetOn: () => dispatch(forgetOn()),
+    // forgetOff: () => dispatch(forgetOff()),
+    // rePass: (cred) => dispatch(repassOn(cred)),
+  };
+};
 
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Start)
+export default connect(mapStateToProps, mapDispatchToProps)(Start);
