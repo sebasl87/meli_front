@@ -4,7 +4,12 @@ import { fetchItemsRequested } from "../actions/items";
 // import 'firebase/auth';
 // import { CardLogin } from '../components';
 import { connect } from "react-redux";
-import { MeliBreadcrumb, MeliCard, MeliHeader } from "../Components";
+import {
+  MeliBreadcrumb,
+  MeliCard,
+  MeliHeader,
+  MeliListCard,
+} from "../Components";
 
 // import { logIn, forgetOn, forgetOff, repassOn } from '../store/actions/auth'
 class Start extends Component {
@@ -40,23 +45,54 @@ class Start extends Component {
 
   // }
   render() {
-    const arrayT = ['paso 1', 'otro paso', 'lo ultimo fue']
+    const arrayT = ["paso 1", "otro paso", "lo ultimo fue"];
     // const { auth, forget } = this.props
     // if(auth.uid) return <Redirect to='/extranet' />
     const item = {
-        "id": "MLA870176477",
-        "title": "Pileta Estructural Rectangular Pelopincho 1010 Con Capacidad De 500 Litros De 1.55m De Largo X 1.07m De Ancho",
-        "price": {
-            "currency": "ARS",
-            "amount": 3399.9
+      id: "MLA870176477",
+      title:
+        "Pileta Estructural Rectangular Pelopincho 1010 Con Capacidad De 500 Litros De 1.55m De Largo X 1.07m De Ancho",
+      price: {
+        currency: "ARS",
+        amount: 3399.9,
+      },
+      picture: "http://http2.mlstatic.com/D_678155-MLA40184463929_122019-I.jpg",
+      condition: "new",
+      free_shipping: true,
+      state: "Capital Federal",
+    };
+    const items = [
+      {
+        id: "MLA870176477",
+        title:
+          "Pileta Estructural Rectangular Pelopincho 1010 Con Capacidad De 500 Litros De 1.55m De Largo X 1.07m De Ancho",
+        price: {
+          currency: "ARS",
+          amount: 3399.9,
         },
-        "picture": "http://http2.mlstatic.com/D_678155-MLA40184463929_122019-I.jpg",
-        "condition": "new",
-        "free_shipping": true
-    }
+        picture:
+          "http://http2.mlstatic.com/D_678155-MLA40184463929_122019-I.jpg",
+        condition: "new",
+        free_shipping: true,
+        state: "Capital Federal",
+      },
+      {
+        id: "MLA870176487",
+        title: "Pileta Estructural Rectangular ",
+        price: {
+          currency: "ARS",
+          amount: 342.9,
+        },
+        picture:
+          "http://http2.mlstatic.com/D_678155-MLA40184463929_122019-I.jpg",
+        condition: "new",
+        free_shipping: false,
+        state: "Mendoza",
+      },
+    ];
     return (
       <>
-      <MeliHeader placeholderM="Nunca dejes de buscar"/>
+        <MeliHeader placeholderM="Nunca dejes de buscar" />
         <div>
           HOLIS
           {/* {console.log(props.user)} */}
@@ -70,9 +106,10 @@ class Start extends Component {
         <MeliBreadcrumb data={arrayT} />
         <br />
 
-        <MeliCard
-        data={item}/>
+        {/* <MeliCard data={item} /> */}
+        <br />
 
+        <MeliListCard totalData={items} />
         {/* <CardLogin
                     onChange={this.handleChange}
                     onClick={this.handleSubmit}
