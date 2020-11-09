@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./meli-search.css";
+import "./meli-search.scss";
 import {MeliIcon} from "../../index";
 import searchIcon from "../../../Assets/ic_Search@2x.png";
 

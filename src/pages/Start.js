@@ -6,8 +6,8 @@ import { fetchItemsRequested } from "../actions/items";
 import { connect } from "react-redux";
 import {
   MeliBreadcrumb,
-  MeliCard,
   MeliHeader,
+  MeliImg,
   MeliListCard,
 } from "../Components";
 
@@ -48,19 +48,19 @@ class Start extends Component {
     const arrayT = ["paso 1", "otro paso", "lo ultimo fue"];
     // const { auth, forget } = this.props
     // if(auth.uid) return <Redirect to='/extranet' />
-    const item = {
-      id: "MLA870176477",
-      title:
-        "Pileta Estructural Rectangular Pelopincho 1010 Con Capacidad De 500 Litros De 1.55m De Largo X 1.07m De Ancho",
-      price: {
-        currency: "ARS",
-        amount: 3399.9,
-      },
-      picture: "http://http2.mlstatic.com/D_678155-MLA40184463929_122019-I.jpg",
-      condition: "new",
-      free_shipping: true,
-      state: "Capital Federal",
-    };
+    // const item = {
+    //   id: "MLA870176477",
+    //   title:
+    //     "Pileta Estructural Rectangular Pelopincho 1010 Con Capacidad De 500 Litros De 1.55m De Largo X 1.07m De Ancho",
+    //   price: {
+    //     currency: "ARS",
+    //     amount: 3399.9,
+    //   },
+    //   picture: "http://http2.mlstatic.com/D_678155-MLA40184463929_122019-I.jpg",
+    //   condition: "new",
+    //   free_shipping: true,
+    //   state: "Capital Federal",
+    // };
     const items = [
       {
         id: "MLA870176477",
@@ -92,11 +92,15 @@ class Start extends Component {
     ];
     return (
       <>
+
+        <br/>
+        <br/>
         <MeliHeader placeholderM="Nunca dejes de buscar" />
         <div>
           HOLIS
           {/* {console.log(props.user)} */}
         </div>
+        <MeliImg srcI="https://http2.mlstatic.com/D_NQ_NP_714978-MLA28464870121_102018-O.webp" max="true"/>
         <br />
         <button className="btn btn-primary" onClick={this.handleSubmit}>
           COMPRA

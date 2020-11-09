@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./meli-card.css";
+import "./meli-card.scss";
 import { MeliImg, MeliCardBody } from "../../index";
 
 const MeliCard = ({ data, last }) => {

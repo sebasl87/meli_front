@@ -1,26 +1,23 @@
-import React, { Component } from 'react'
-import Start from '../pages/Start'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import React from "react";
+import Header from "./Header";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Start from "../pages/Start";
+import Results from "../pages/Results";
+import Details from "../pages/Details";
 
-// import ReservationsPage from '../pages/Reservations'
-// import Dashboard from '../pages/Dashboard'
+const Index = () => (
+  <>
+    <Router>
+      <Header />
+      <main>
+        <Switch>
+          <Route exact path="/items?search=" component={Results} />
+          <Route exact path="/items/:id" component={Details} />
+          <Route path="/" component={Start} />
+        </Switch>
+      </main>
+    </Router>
+  </>
+);
 
-export class App extends Component {
-
-    render() {
-        return (
-            <div className="container">
-                <Router>
-                    <Switch>
-                        {/* <Route exact path="/login" component={Login} />
-                        <Route exact path="/extranet" component={Dashboard} />
-                        <Route exact path="/extranet/reservations" component={ReservationsPage} /> */}
-                        <Route component={Start} />
-                    </Switch>
-                </Router>
-            </div>
-        )
-    }
-}
-
-export default App
+export default Index;

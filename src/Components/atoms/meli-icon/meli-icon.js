@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./meli-icon.css";
+import "./meli-icon.scss";
 
 const MeliIcon = ({ srcI, altI, noBg }) => (
   <img src={srcI} alt={altI} className={noBg ? "iconoSinBg" : "icono"} />

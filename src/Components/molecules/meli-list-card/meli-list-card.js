@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./meli-list-card.css";
+import "./meli-list-card.scss";
 import { MeliCard } from "../../index";
 
 const MeliListCard = ({ totalData }) => {

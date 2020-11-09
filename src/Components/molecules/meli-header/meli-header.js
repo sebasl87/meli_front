@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./meli-header.css";
+import "./meli-header.scss";
 import { MeliLogo, MeliSearch } from "../../index";
 
 const MeliHeader = ({ placeholderM }) => {

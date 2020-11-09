@@ -1,6 +1,6 @@
 // import React from "react";
 import PropTypes from "prop-types";
-import "./meli-breadcrumb.css";
+import "./meli-breadcrumb.scss";
 
 const MeliBreadcrumbs = ({ data }) => {
   return data.map((step) => {
@@ -9,7 +9,7 @@ const MeliBreadcrumbs = ({ data }) => {
 };
 
 MeliBreadcrumbs.prototype = {
-  data: PropTypes.array,
+  data: PropTypes.array
 };
 
 export default MeliBreadcrumbs;

@@ -1,0 +1,12 @@
+.imagen {
+  width: 180px;
+  height: 180px;
+  border-radius: 4px;
+  margin: 16px;
+  float: left;
+
+  &.bigOne {
+    width: 680px !important;
+    height: auto !important;
+  }
+}

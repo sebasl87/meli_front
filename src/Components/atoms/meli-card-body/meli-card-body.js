@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./meli-card-body.css";
+import "./meli-card-body.scss";
 import { MeliIcon } from "../../index";
 import shipping from "../../../Assets/ic_shipping@2x.png";
 
