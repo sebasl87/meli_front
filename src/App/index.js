@@ -11,7 +11,7 @@ const Index = () => (
       <Header />
       <main>
         <Switch>
-          <Route exact path="/items?search=" component={Results} />
+          <Route exact path="/items" component={Results} />
           <Route exact path="/items/:id" component={Details} />
           <Route path="/" component={Start} />
         </Switch>

@@ -10,7 +10,9 @@ const MeliCard = ({ data, last }) => {
         <MeliImg srcI={data.picture} />
         <MeliCardBody data={data} />
       </div>
-      <hr className={last ? "hide" : ""} />
+      <div className="container">
+        <hr className={last ? "hide" : "mb-0 mt-0"} />
+      </div>
     </>
   );
 };
