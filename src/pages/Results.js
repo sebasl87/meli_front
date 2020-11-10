@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { MeliBreadcrumb, MeliListCard } from "../Components/index";
-const ruta = ["lo1", "lo2", "lo4"];
+
 const items = {
   author: {
     name: "Sebastian",
@@ -76,12 +76,26 @@ const items = {
       state: "Capital Federal",
     },
   ],
+    breadcrumb: [
+        {
+            id: "MLA1574",
+            name: "Hogar, Muebles y Jardín"
+        },
+        {
+            id: "MLA1621",
+            name: "Jardines y Exteriores"
+        },
+        {
+            id: "MLA2521",
+            name: "Piletas y Accesorios"
+        }
+    ]
 };
 class Results extends Component {
   render() {
     return (
       <div className="container mb80">
-        <MeliBreadcrumb data={ruta} />
+        <MeliBreadcrumb data={items.breadcrumb} />
         <div className="rounded bg-white">
           <MeliListCard totalData={items.items} />
         </div>

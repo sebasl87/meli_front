@@ -1,12 +1,12 @@
 .imagen {
-  width: 180px;
-  height: 180px;
   border-radius: 4px;
-  margin: 16px;
   float: left;
+  height: 180px;
+  margin: 16px;
+  width: 180px;
 
   &.bigOne {
-    width: 680px !important;
     height: 680px !important;
+    width: 680px !important;
   }
 }

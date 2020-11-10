@@ -6,15 +6,15 @@ import shipping from "../../../Assets/ic_shipping@2x.png";
 
 const MeliCardBody = ({ data }) => {
   return (
-    <div className="bodyCard clearfix">
+    <div className="bodyCard clearfix mt-32">
       <div className="float-left w-75 mw60">
-        <p>
+        <p className='font-weight-bold'>
           {data.price.currency} {data.price.amount}
           {data.free_shipping && <MeliIcon srcI={shipping} noBg="true" />}
         </p>
-        <p>{data.title}</p>
+        <p className='font-weight-bold'>{data.title}</p>
       </div>
-      <div className="float-right w-25 direccion">
+      <div className="float-right w-25 direccion fz12">
         <p>{data.state}</p>
       </div>
     </div>
