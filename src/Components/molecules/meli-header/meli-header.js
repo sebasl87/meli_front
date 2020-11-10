@@ -7,7 +7,11 @@ const MeliHeader = ({ placeholderM, onChange, onClick }) => {
   return (
     <div className="header">
       <MeliLogo />
-      <MeliSearch placeholderM={placeholderM} goOnChange={onChange} goOnClick={onClick}/>
+      <MeliSearch
+        placeholderM={placeholderM}
+        goOnChange={onChange}
+        goOnClick={onClick}
+      />
     </div>
   );
 };

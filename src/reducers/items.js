@@ -7,7 +7,7 @@ const itemsReducer = (state = initialState, action) => {
     case "FETCH_ITEMS_REQUESTED":
       return { ...state };
     case "FETCH_ITEMS_SUCCEEDED":
-      return { ...state, documents: action.item };
+      return { ...state, documents: action.results };
     default:
       return { ...state };
   }

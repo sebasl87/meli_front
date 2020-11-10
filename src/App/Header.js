@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import { MeliHeader } from "../Components";
+import { connect } from "react-redux";
+
+import { fetchItemsRequested } from "../actions/items";
 
 class Header extends Component {
   handleChange = (e) => {
@@ -10,7 +13,7 @@ class Header extends Component {
 
   handleSubmit = async (e) => {
     e.preventDefault();
-    // this.props.logIn(this.state);
+    this.props.searchIn(this.state);
     console.log(this.state);
   };
 
@@ -26,5 +29,28 @@ class Header extends Component {
     );
   }
 }
+const mapStateToProps = (state) => {
+  return {
+    doc : state.doc
+  }
+  // console.log(state);
+  // return {
+  //     auth: state.firebase.auth,
+  //     forget: state.user.passForget
+  //     // user: state.user.user
+  // }
+};
 
-export default Header;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    searchIn: (query) => dispatch(fetchItemsRequested(query)),
+    // forgetOn: () => dispatch(forgetOn()),
+    // forgetOff: () => dispatch(forgetOff()),
+    // rePass: (cred) => dispatch(repassOn(cred)),
+    // onUserLogin: (user) => {
+    //     dispatch(addUser(user))
+    // }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
