@@ -1,8 +1,11 @@
 import Axios from "axios";
 
 class ItemsServices {
-  static fetchItems(string) {
-    return Axios.get(`http://localhost:3030/api/items?q=${string.string.item}`);
+  static fetchItems(query) {
+    return Axios.get(`http://localhost:3030/api/items?q=${query.query}`);
+  };
+  static fetchItem(item) {
+    return Axios.get(`http://localhost:3030/api/items/${item.item}`);
   }
 }
 

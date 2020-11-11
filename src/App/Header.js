@@ -13,7 +13,6 @@ class Header extends Component {
   handleSubmit = async (e) => {
     e.preventDefault();
     if (this.state !== null) {
-      //  this.props.searchIn(this.state);
       this.props.history.push({
         pathname: "/items",
         search: `?q=${this.state.item}`,
@@ -33,11 +32,5 @@ class Header extends Component {
     );
   }
 }
-
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     searchIn: (query) => dispatch(fetchItemsRequested(query)),
-//   };
-// };
 
 export default withRouter(Header);

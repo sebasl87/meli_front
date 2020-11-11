@@ -2,16 +2,19 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./meli-list-card.scss";
 import { MeliCard } from "../../index";
+import { Link } from "react-router-dom";
 
 const MeliListCard = ({ totalData }) => {
   const dataLen = totalData.length;
   return totalData.map((card, i) => {
     return (
-      <MeliCard
-        data={card}
-        key={card.id}
-        last={dataLen === i + 1 ? true : false}
-      />
+      <Link to={`/items/${card.id}`}>
+        <MeliCard
+          data={card}
+          key={card.id}
+          last={dataLen === i + 1 ? true : false}
+        />
+      </Link>
     );
   });
 };
