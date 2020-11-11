@@ -8,6 +8,7 @@ const MeliSearch = ({ placeholderM, goOnChange, goOnClick }) => {
   return (
     <>
       <input placeholder={placeholderM} onChange={goOnChange} name="item" />
+
       <MeliIcon srcI={searchIcon} passOnClick={goOnClick} />
     </>
   );

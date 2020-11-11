@@ -7,6 +7,7 @@ const MeliBreadcrumbs = ({ data }) => {
   return data.map((step, i) => {
     return (
       <div
+        key={step.id}
         className={
           dataLen === i + 1
             ? "d-inline-flex mb-16 mt-16 fz14 font-weight-bold grey"

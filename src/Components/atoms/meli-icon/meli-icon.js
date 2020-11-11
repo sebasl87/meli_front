@@ -3,7 +3,12 @@ import PropTypes from "prop-types";
 import "./meli-icon.scss";
 
 const MeliIcon = ({ srcI, altI, noBg, passOnClick }) => (
-  <img src={srcI} alt={altI} className={noBg ? "iconoSinBg" : "icono"} onClick={passOnClick}/>
+  <img
+    src={srcI}
+    alt={altI}
+    className={noBg ? "iconoSinBg" : "icono"}
+    onClick={passOnClick}
+  />
 );
 
 MeliIcon.prototype = {
