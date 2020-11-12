@@ -8,11 +8,11 @@ const MeliCardBody = ({ data }) => {
   return (
     <div className="bodyCard clearfix mt-32">
       <div className="float-left w-75 mw60">
-        <p className='font-weight-bold'>
+        <p>
           {data.price.currency} {data.price.amount}
           {data.free_shipping && <MeliIcon srcI={shipping} noBg="true" />}
         </p>
-        <p className='font-weight-bold'>{data.title}</p>
+        <p>{data.title}</p>
       </div>
       <div className="float-right w-25 direccion fz12">
         <p>{data.state}</p>

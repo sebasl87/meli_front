@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { MeliBreadcrumb, MeliListCard } from "../Components/index";
+import { Loader, MeliBreadcrumb, MeliListCard } from "../Components/index";
 import { connect } from "react-redux";
 import { fetchItemsRequested } from "../actions/items";
 import { withRouter } from "react-router-dom";
@@ -11,7 +11,10 @@ class Results extends Component {
   }
 
   render() {
-    return (
+    
+    return this.props.loader ? (
+      <Loader />
+    ) : (
       <div className="container mb80">
         {this.props.items.data.breadcrumb && (
           <MeliBreadcrumb data={this.props.items.data.breadcrumb} />
@@ -23,8 +26,10 @@ class Results extends Component {
     );
   }
 }
+
 const mapStateToProps = (state) => {
   return {
+    loader: state.data.loader,
     items: state.data.documents,
   };
 };

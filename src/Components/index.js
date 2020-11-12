@@ -9,7 +9,8 @@ import MeliCardBody from "./atoms/meli-card-body/meli-card-body";
 import MeliHeader from "./molecules/meli-header/meli-header";
 import MeliDetail from "./atoms/meli-detail/meli-detail";
 import MeliTotalDetails from "./molecules/meli-total-details/meli-total-details";
-import MeliDescription from './atoms/meli-description/meli-description'
+import MeliDescription from "./atoms/meli-description/meli-description";
+import Loader from "./atoms/meli-loader/meli-loader";
 
 export { MeliLogo };
 export { MeliSearch };
@@ -23,3 +24,4 @@ export { MeliHeader };
 export { MeliDetail };
 export { MeliDescription };
 export { MeliTotalDetails };
+export { Loader };
