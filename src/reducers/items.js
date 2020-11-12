@@ -1,7 +1,7 @@
 const initialState = {
   query: "",
   loader: true,
-  documents: [],
+  documents: null,
 };
 
 const itemsReducer = (state = { ...initialState }, action) => {
@@ -11,9 +11,9 @@ const itemsReducer = (state = { ...initialState }, action) => {
     case "FETCH_ITEMS_SUCCEEDED":
       return { ...state, documents: action.results, loader: false };
     case "FETCH_ITEM_REQUESTED":
-      return { ...state, item: action.item, loader: true };
+      return { ...state, item: null, loader: true };
     case "FETCH_ITEM_SUCCEEDED":
-      return { ...state, documents: action.result, loader: false };
+      return { ...state, item: action.result, loader: false };
     default:
       return { ...state };
   }

@@ -1,5 +1,16 @@
-import React from "react";
+import React from 'react';
+import {HashRouter} from 'react-router-dom';
 
-const Start = () => (<div></div>);
+import Router from './Router';
 
-export default Start;
+import ErrorBoundary from './ErrorBoundary';
+
+const App = () => (
+    <HashRouter>
+        <ErrorBoundary>
+            <Router/>
+        </ErrorBoundary>
+    </HashRouter>
+);
+
+export default App;

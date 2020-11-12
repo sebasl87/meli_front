@@ -1,30 +1,34 @@
-import React, { Component } from "react";
+import React, { useEffect } from "react";
 import { Loader, MeliBreadcrumb, MeliListCard } from "../Components/index";
 import { connect } from "react-redux";
 import { fetchItemsRequested } from "../actions/items";
 import { withRouter } from "react-router-dom";
 
-class Results extends Component {
-  constructor(props) {
-    super(props);
-    this.props.searchIn(this.props.history.location.search.slice(3));
-  }
+const Results = ({
+  history,
+  searchIn,
+  items,
+  loader
+}) => {
 
-  render() {
-    
-    return this.props.loader ? (
-      <Loader />
-    ) : (
+  useEffect(() => {
+    searchIn(history.location.search.slice(3))
+  }, [])
+
+  if (items) {
+    return (
       <div className="container mb80">
-        {this.props.items.data.breadcrumb && (
-          <MeliBreadcrumb data={this.props.items.data.breadcrumb} />
+        {items.breadcrumb && (
+          <MeliBreadcrumb data={items.breadcrumb} />
         )}
         <div className="rounded bg-white">
-          <MeliListCard totalData={this.props.items.data.items} />
+          <MeliListCard totalData={items.items} />
         </div>
       </div>
     );
   }
+
+  return null;
 }
 
 const mapStateToProps = (state) => {

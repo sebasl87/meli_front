@@ -1,29 +1,35 @@
-import { put, call, all, takeEvery } from "redux-saga/effects";
+import { put, call, all, takeLatest } from "redux-saga/effects";
 import ItemsServices from "../services/items";
 import { fetchItemsSucceeded, FETCH_ITEMS_REQUESTED, fetchItemSucceeded, FETCH_ITEM_REQUESTED } from "../actions/items";
 
-export function* apiCall(query) {
+export function* apiCall(props) {
   try {
-    const results = yield call(ItemsServices.fetchItems, {
-      ...query,
+    const {data} = yield call(ItemsServices.fetchItems, {
+      ...props,
     });
-    yield put(fetchItemsSucceeded(results));
+    yield put(fetchItemsSucceeded(data));
   } catch (error) {
     console.log(error);
   }
 }
-export function* apiCallItem(item) {
-  try {
-    const result = yield call(ItemsServices.fetchItem, {
-      ...item,
-    });
-    yield put(fetchItemSucceeded(result));
-  } catch (error) {
-    console.log(error);
-  }
-}
-export function* sagasListener() {
-  yield all([takeEvery(FETCH_ITEMS_REQUESTED, apiCall)]);
-  yield all([takeEvery(FETCH_ITEM_REQUESTED, apiCallItem)]);
 
+export function* apiCallItem(props) {
+  try {
+
+    const {data, status} = yield call(ItemsServices.fetchItem, {
+      ...props,
+    });
+
+
+    yield put(fetchItemSucceeded(data));
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export default function* sagasListener() {
+  yield all([
+    takeLatest(FETCH_ITEMS_REQUESTED, apiCall), 
+    takeLatest(FETCH_ITEM_REQUESTED, apiCallItem)
+  ]);
 }
